@@ -10,7 +10,7 @@
 <body>
     <h1>S'inscrire</h1>
 
-    <form action="../controlleur/passerelle_inscr.php" method="post">
+    <form action="../controller/passerelle_inscr.php" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom">
 
