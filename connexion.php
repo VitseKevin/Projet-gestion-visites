@@ -72,7 +72,7 @@
 <body>
     <h1>Se connecter</h1>
 
-    <form action="../controlleur/passerelle_co.php" method="POST">
+    <form action="../controller/passerelle_co.php" method="POST">
         <div>
             <label for="login">Login:</label>
             <input type="text" name="login" id="login" />
