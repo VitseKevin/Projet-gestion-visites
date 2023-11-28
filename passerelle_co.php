@@ -9,7 +9,7 @@ if (!empty($_POST['login']) && !empty($_POST['mdp'])) {
 
     // Requête préparée pour récupérer le visiteur par son login
     $query = $pdo->prepare("SELECT * FROM visiteur WHERE login = :login");
-    $query->bindParam('d:login', $login, PDO::PARAM_STR);
+    $query->bindParam(':login', $login, PDO::PARAM_STR);
     $query->execute();
 
     $visiteur = $query->fetch(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ if (!empty($_POST['login']) && !empty($_POST['mdp'])) {
             $_SESSION["login"] = $login;
             
             // Rediriger après l'insertion des données
-            header("Location: ../Vue/acceuil.php");
+            header("Location: ../vue/acceuil.php");
             exit();
         
         } else {
