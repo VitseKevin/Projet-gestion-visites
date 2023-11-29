@@ -1,6 +1,6 @@
 <?php
-include ('medecin.php');
-include ('passerelleMedecin.php');
+include ('../model/medecin.php');
+include ('../controller/passerelleMedecin.php');
 
 ?>
 <!DOCTYPE html>
@@ -77,7 +77,7 @@ include ('passerelleMedecin.php');
         <input type='text' name='specialite' placeholder='Spécialité complémentaire' required></input>
         <br>
         <input type="submit" value="Créer"></input>
-        <input type='button' onclick="window.location.href='http://localhost/ENSITECH_PHP/AP%20Gestion%20visites/gestion_medecin.php';" value='Retour'></input>
+        <input type='button' onclick="window.location.href='gestion_medecin.php';" value='Retour'></input>
     </form>
 
 </body>
