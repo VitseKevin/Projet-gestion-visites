@@ -1,7 +1,7 @@
 <?php
 
 require_once("../inc/init.inc.php");
-require_once("../classe/visiteur.php");
+require_once("../model/visiteur.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nouveauVisiteur->addvisiteur($pdo,$nouveauVisiteur);
     
     // Rediriger après l'insertion des données
-    header("Location: ../Vue/acceuil.php");
+    header("Location: ../vue/connexion.php");
     exit();
 } else {
     // Gérer le cas où la méthode HTTP n'est pas POST
