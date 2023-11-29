@@ -15,13 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idRapport = $pdo->query('SELECT MAX(id) as idMax FROM rapport');
     $idRapport = $idRapport->fetch();
     $idRapport = $idRapport['idMax'];
+    $idVisiteur = $_SESSION["id"];
 
-    $newRapport = new Rapport(null,$medecinvisite,$date, $motif,$bilan);
+    $newRapport = new Rapport(null,$medecinvisite,$date, $motif,$bilan,$idVisiteur);
     $newRapport->addRapport($newRapport,$pdo);
 
     $newOffrir = new Offrir($idRapport,$medicament,$quantite);
     $newOffrir->addOffrir($newOffrir,$pdo);
-
+    
+    header("Location: ../vue/gestion rapport.php");
+    exit();
 
 }
 
