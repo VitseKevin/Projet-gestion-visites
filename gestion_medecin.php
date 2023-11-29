@@ -1,5 +1,5 @@
 <?php
-   require_once("./inc/init.inc.php");
+   require_once("../inc/init.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,21 @@
 <body>
 
     <h1>Gestion de mes médecins</h1>
-    <input type='button' onclick="window.location.href='http://localhost/ENSITECH_PHP/AP%20Gestion%20visites/creation_medecin.php';" value='Ajouter un médecin'></input>
+    <form action="gestion_medecin.php?id" method='get'>
+    <label for="choix">Choisissez un Medecin :</label>
+        <select id="id" name="id">
+            <?php
+                $resultat = $pdo->query("SELECT id, nom, prenom FROM medecin");
+
+                while ($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $donnees['id'] . "'>" . $donnees['nom'] . " " . $donnees['prenom'] . "</option>";
+                }
+            ?>
+        </select>
+        <input type="submit" value="Rechercher"></input>
+    </form>
+    <br>
+    <input type='button' onclick="window.location.href='creation_medecin.php';" value='Ajouter un médecin'></input>
     <table>
         <thead>
             <tr>
@@ -56,9 +70,15 @@
         </thead>
         <tbody>
             <?php
+            if (isset($_GET['id'])){
+                $resultat = $pdo->query("SELECT id, nom, prenom, ville FROM medecin WHERE id='{$_GET['id']}'");
+            }
+            else{
             $resultat = $pdo->query("SELECT id, nom, prenom, ville FROM medecin");
-
+            }
+            
             while ($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
+
                 ?>
                 <tr>
                     <td><?= $donnees['nom'] ?></td>
