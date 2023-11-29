@@ -12,6 +12,7 @@ if (!empty($_POST['login']) && !empty($_POST['mdp'])) {
     $query->bindParam(':login', $login, PDO::PARAM_STR);
     $query->execute();
 
+
     $visiteur = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($visiteur) {
@@ -20,9 +21,9 @@ if (!empty($_POST['login']) && !empty($_POST['mdp'])) {
             // Login et mot de passe valides
             echo "Authentification réussie !";
             $_SESSION["login"] = $login;
-            
-            // Rediriger après l'insertion des données
-            header("Location: ../vue/acceuil.php");
+            $_SESSION["id"] = $visiteur["id"];
+            // Red iriger après l'insertion des données
+            header("Location: ../Vue/acceuil.php");
             exit();
         
         } else {
