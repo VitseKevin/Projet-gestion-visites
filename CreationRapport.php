@@ -1,6 +1,6 @@
 <?php
 require_once("../inc/init.inc.php");
-require_once("../controller/passerelleRapport.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ require_once("../controller/passerelleRapport.php");
 </head>
 <body>
 
-    <form action="" method="post">
+    <form action="../controller/passerelleRapport.php" method="post">
         <h1>Créer un rapport de visite</h1>
         <label for="choix">Choisissez un Medecin :</label>
         <select id="medecin" name="medecin">
@@ -96,8 +96,9 @@ require_once("../controller/passerelleRapport.php");
         <br>
         <input type='text' name='quantite' placeholder='quantite' required></input>
         <br>
-        <input type="submit" value="Créer"></input>
+        <input type="submit" value="Créer" ></input>
     </form>
+
 
 </body>
 </html>
