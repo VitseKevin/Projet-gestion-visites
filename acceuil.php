@@ -1,3 +1,7 @@
+<?php
+require_once("../inc/init.inc.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -49,8 +53,9 @@
     </div>
 
     <div id="liens">
-        <a href="lien1.html">Gérer mes rapports de visites.</a>
-        <a href="lien2.html">Gérer mes médecins.</a>
+        <a href="gestion rapport.php">Gérer mes rapports de visites.</a>
+        <a href="gestion_medecin.php">Gérer mes médecins.</a>
+        <a href="ajouter_medicament.php">Ajouter un médicament.</a>
     </div>
 </body>
 </html>
