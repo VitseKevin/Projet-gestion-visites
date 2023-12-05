@@ -107,5 +107,4 @@ public function setDateEmbaucheVis($dateEmbaucheVis) {
         
 }
    
-// Exemple d'utilisation
 
