@@ -55,7 +55,6 @@ require_once("../inc/init.inc.php");
     <div id="liens">
         <a href="gestion rapport.php">Gérer mes rapports de visites.</a>
         <a href="gestion_medecin.php">Gérer mes médecins.</a>
-        <a href="ajouter_medicament.php">Ajouter un médicament.</a>
     </div>
 </body>
 </html>
