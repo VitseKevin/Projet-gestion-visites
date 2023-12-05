@@ -1,6 +1,5 @@
 <?php
 require_once("../inc/init.inc.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +8,7 @@ require_once("../inc/init.inc.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -63,13 +63,17 @@ require_once("../inc/init.inc.php");
 </head>
 <body>
 
+
     <form action="../controller/passerelleRapport.php" method="post">
         <h1>Créer un rapport de visite</h1>
+
         <label for="choix">Choisissez un Medecin :</label>
         <select id="medecin" name="medecin">
             <?php
+                // Récupération des médecins depuis la base de données
                 $resultat = $pdo->query("SELECT id, nom, prenom FROM medecin");
 
+                // Affichage des options dans la liste déroulante
                 while ($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
                     echo "<option value='" . $donnees['id'] . "'>" . $donnees['nom'] . " " . $donnees['prenom'] . "</option>";
                 }
@@ -79,26 +83,31 @@ require_once("../inc/init.inc.php");
         <label>Date de la visite:</label>
         <input type='date' name='date' required></input>
         <br>
+
         <input type='text' name='motif' placeholder='Motif' required></input>
         <br>
+
         <textarea name='bilan' placeholder='Bilan' rows='4' style='resize: none;' required></textarea>
         <br>
+
         <label for="choix">Choisissez un Medicament :</label>
         <select id="medicament" name="medicament">
             <?php
+                // Récupération des médicaments depuis la base de données
                 $resultat = $pdo->query("SELECT id, nomCommercial FROM medicament");
 
+                // Affichage des options dans la liste déroulante
                 while ($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
                     echo "<option value='" . $donnees['id'] . "'>" . $donnees['nomCommercial']. "</option>";
                 }
             ?>
         </select>
         <br>
+
         <input type='text' name='quantite' placeholder='quantite' required></input>
         <br>
+
         <input type="submit" value="Créer" ></input>
     </form>
-
-
 </body>
 </html>
