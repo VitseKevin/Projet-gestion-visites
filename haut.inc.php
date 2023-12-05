@@ -11,7 +11,7 @@
     <div class="conteneur">
 
         <nav>
-            <a href="<?php echo RACINE_SITE; ?>../vue/acceuil.php">Acceuil</a>
+            <a href="<?php echo RACINE_SITE; ?>./vue/acceuil.php">Acceuil</a>
         </nav>
     </div>
 </header>
