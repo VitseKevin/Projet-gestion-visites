@@ -18,5 +18,6 @@ $nouveauMedecin = new Medecin(null, $nom, $prenom, $adresse, $cp, $ville, $tel, 
 
 $nouveauMedecin->addMedecin($nouveauMedecin,$pdo);
 
-echo '<script>window.location.href = "gestion_medecin.php";</script>';
-}
+// Rediriger après l'insertion des données
+    header("Location: ../vue/acceuil.php");
+    exit();}
