@@ -1,6 +1,5 @@
 <?php
 require_once("../inc/init.inc.php");
-require_once ("../inc/haut.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,8 +42,13 @@ require_once ("../inc/haut.inc.php");
 </head>
 <body>
 
+    <!-- Titre de la page -->
     <h1>Gestion de mes rapports</h1>
+
+    <!-- Bouton pour ajouter un rapport avec redirection vers CreationRapport.php -->
     <input type='button' onclick="window.location.href='CreationRapport.php';" value='Ajouter un rapport'></input>
+    <input type='button' onclick="window.location.href='acceuil.php';" value="retourner a l'acuei"></input>
+    <!-- Tableau pour afficher les rapports -->
     <table>
         <thead>
             <tr>
@@ -56,11 +60,14 @@ require_once ("../inc/haut.inc.php");
         </thead>
         <tbody>
             <?php
+            // Requête SQL pour récupérer les rapports liés à un visiteur spécifique
             $resultat = $pdo->query("SELECT rapport.id, date, motif, bilan, medecin.nom, medecin.prenom FROM rapport LEFT JOIN medecin ON rapport.idMedecin=medecin.id WHERE idVisiteur = '{$_SESSION["id"]}' ");
 
+            // Boucle pour afficher chaque ligne du tableau
             while ($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <tr>
+                    <!-- Affichage des données de chaque rapport -->
                     <td><?= $donnees['nom'] ." ". $donnees['prenom'] ?></td>
                     <td><?= $donnees['date'] ?></td>
                     <td><?= $donnees['motif'] ?></td>
