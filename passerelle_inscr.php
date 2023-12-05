@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nouveauVisiteur->addvisiteur($pdo,$nouveauVisiteur);
     
     // Rediriger après l'insertion des données
-    header("Location: ../vue/acceuil.php");
+    header("Location: ../vue/connexion.php");
     exit();
 } else {
     // Gérer le cas où la méthode HTTP n'est pas POST
