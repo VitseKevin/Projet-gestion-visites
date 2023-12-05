@@ -1,5 +1,6 @@
 <?php
    require_once("../inc/init.inc.php");
+require_once ("../inc/haut.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +66,7 @@
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Ville</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -83,6 +85,10 @@
                     <td><?= $donnees['nom'] ?></td>
                     <td><?= $donnees['prenom'] ?></td>
                     <td><?= $donnees['ville'] ?></td>
+                    <td>
+                        <a href="?action=modifier&id=<?= $donnees['id'] ?>">Modifier</a> |
+                        <a href="?action=supprimer&id=<?= $donnees['id'] ?>">Supprimer</a>
+                    </td>
                 </tr>
                 <?php
             }
