@@ -1,0 +1,31 @@
+<?php
+require_once("../inc/init.inc.php");
+require_once("../model/rapport.php");
+require_once("../model/offrir.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $medecinvisite = $_POST['medecin'];
+    $date = $_POST['date'];
+    $motif = $_POST['motif'];
+    $bilan = $_POST['bilan'];
+    $medicament = $_POST['medicament'];
+    $quantite = $_POST['quantite'];
+    $idRapport = $pdo->query('SELECT MAX(id) as idMax FROM rapport');
+    $idRapport = $idRapport->fetch();
+    $idRapport = $idRapport['idMax'];
+    $idVisiteur = $_SESSION["id"];
+
+    $newRapport = new Rapport(null,$medecinvisite,$date, $motif,$bilan,$idVisiteur);
+    $newRapport->addRapport($newRapport,$pdo);
+
+    $newOffrir = new Offrir($idRapport,$medicament,$quantite);
+    $newOffrir->addOffrir($newOffrir,$pdo);
+    
+    header("Location: ../vue/gestion rapport.php");
+    exit();
+
+}
+
+
+?>
